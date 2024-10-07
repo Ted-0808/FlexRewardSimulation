@@ -14,8 +14,15 @@ class FlexibilityCalculator:
         charging_duration = (charging_request.requested_leave_time - charging_request.charging_start_time).total_seconds() / 60  # in minutes
         required_charging_time = (charging_request.requested_energy /nominal_power_cp) * 60  # in minutes
 
+        ## two new variables for charging_request class 1.charged_energy 2. charged_time
+        ##charging_duration = (charging_request.requested_leave_time - charging_request.charging_start_time - charging_request.charged_time).total_seconds() / 60  # in minutes
+        ##required_charging_time = ((charging_request.requested_energy - charging_request.charged_energy)/nominal_power_cp) * 60  # in minutes
+
+        
         flexibility = charging_duration - required_charging_time
         return flexibility
+
+        ## return time_flexibility
 
     @staticmethod
     def calculate_power_flexibility(charging_request,nominal_power_cp):
