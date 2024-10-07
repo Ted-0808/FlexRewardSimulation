@@ -16,7 +16,9 @@ class FlexibilityCalculator:
 
         flexibility = charging_duration - required_charging_time
         return flexibility
+        # the returned flexibility (time) is fixed value, which only valid at the first timestep
 
+    
     @staticmethod
     def calculate_power_flexibility(charging_request,nominal_power_cp):
         """
